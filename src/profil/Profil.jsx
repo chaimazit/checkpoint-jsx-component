@@ -9,11 +9,11 @@ const Profile = (props) => {
 <div
       
     >
-      <h2>Name</h2>
-      <h4>{fullName}</h4>
-      <h2> Profession </h2>
-      <h4> {profession} </h4>
-      <h2 > Biography </h2>
+      <h1>Name</h1>
+      <h2>{fullName}</h2>
+      <h1> Profession </h1>
+      <h2> {profession} </h2>
+      <h1 > Biography </h1>
       <p> {bio}</p>
       <div>
         {children}{" "}
@@ -27,8 +27,6 @@ const Profile = (props) => {
     </div>
   );
 };
-
-
 
 Profile.defaultProps = {
   fullName: "default fullName",
