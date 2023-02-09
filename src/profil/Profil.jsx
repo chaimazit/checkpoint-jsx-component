@@ -1,44 +1,47 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-
-
-
-const Profile = ({profile,handleName,children}) => {
-    const{fullName,bio,profession}=profile
-
-    const handleClick = e => {
-      e.preventDefault();
-     
-      handleName(fullName);}
+import React from "react"
+import PropTypes from "prop-types"
+const Profile = (props) => {
+  const { fullName, bio, profession, children, handleName } = props;
+  const handleClick = (e) => handleName(fullName);
     
   return (
-<> 
-  <div className="card" style={{width: '18rem'}}>
-    {children}
-    <div className="card-body">
-      <h5 className="card-title">{fullName}</h5>
-      <p className="card-text">{bio}</p>
+
+<div
+      
+    >
+      <h2>Name</h2>
+      <h4>{fullName}</h4>
+      <h2> Profession </h2>
+      <h4> {profession} </h4>
+      <h2 > Biography </h2>
+      <p> {bio}</p>
+      <div>
+        {children}{" "}
+      </div>
+      <br />
+      <button>
+        <a href="#!" onClick={handleClick} style={{ color: "black" }}>
+          fullName
+        </a>
+      </button>
     </div>
-    <ul className="list-group list-group-flush">
-      <li className="list-group-item">{profession}</li>
-      </ul>
-    <div className="card-body">
-      <a href='' className="card-link" onClick={handleClick}>show Name</a>
-        </div>
-  </div>  
-</>
-)
-}
+  );
+};
 
-Profile.defaultProps={
-profile:{fullName:'Chaima Zitouni',bio:'',profession:'ingenieure'},
-handleName:(x)=>console.log(`hello ${x}`)
-}
 
-Profile.propTypes={
-  profile: PropTypes.object.isRequired,
-  handleName:PropTypes.func.isRequired,
 
-}
+Profile.defaultProps = {
+  fullName: "default fullName",
+  profession: "default profession",
+  bio: " default bio",
+};
+
+Profile.propTypes = {
+  fullName: PropTypes.string.isRequired,
+  profession: PropTypes.string.isRequired,
+  bio: PropTypes.string.isRequired,
+  handleName: PropTypes.func.isRequired,
+
+};
 
 export default Profile
